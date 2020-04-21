@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國家公園</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- link swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <!-- 下載字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <!-- link AOS   -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- link animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    section {
+        margin-bottom: 50px;
+    }
+
+    html{
+        scroll-behavior: smooth;
+    }
+
+
+    /* -----------------------------------BANNER CSS------------------------------------------- */
+    .banner {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+
+        background-color: teal;
+    }
+
+    .banner h1 {
+        color: white;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+
+    }
+
+    .banner h3 {
+        color: white;
+        text-align: center;
+        line-height: 180vh;
+
+    }
+
+    /* -----------------------------------NAV CSS------------------------------------------- */
+    .logo-top {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+    }
+
+    .hamberger {
+        width: 60px;
+        height: 60px;
+        background-image: url('./img/menu.png');
+        background-position: center;
+        background-size: cover;
+    }
+
+    .nav-link {
+        font-size: 20px;
+    }
+
+    @media(max-width: 992px) {
+        .nav-link {
+            text-align: right;
+        }
+
+    }
+
+    /* -----------------------------------Taiwan CSS------------------------------------------- */
+    .taiwan {
+        position: relative;
+        background-color: darkseagreen;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .taiwan .taiwanPng {
+        position: absolute;
+        height: 100vh;
+        text-align: start;
+        transform: rotate(15deg);
+    }
+
+    .map-adjust {
+        position: absolute;
+        height: 10%;
+    }
+
+    .taiwan .map-icon1 {
+        top: 150px;
+        left: 650px;
+    }
+
+    .taiwan .map-icon2 {
+        top: 500px;
+        left: 450px;
+    }
+
+    .taiwan .person {
+        position: absolute;
+        height: 40%;
+        bottom: 100px;
+        right: 100px;
+    }
+
+    /* -----------------------------------動森快訊 CSS------------------------------------------- */
+    /* 讓每張卡片佔滿自己的col  沒設會爆版 */
+    .card-img-area1 {
+        width: 100%;
+    }
+
+    /* 控制4張卡片的高度 */
+
+    .pading-block {
+        padding-top: 50px;
+    }
+
+    .pading-block:nth-child(even) {
+        padding-top: 120px;
+
+    }
+
+    /* -----------------------------------國家風情 CSS------------------------------------------- */
+    .photo-area {
+        width: 100%;
+        height: 100vh;
+        background-color: chocolate;
+
+    }
+
+    .photo1 {
+
+        width: 400px;
+        height: 220px;
+        background-color: cornflowerblue;
+    }
+
+
+    /*---------------------------------------------- footer CSS--------------------------------------------------*/
+
+    .footer-block {
+        width: 100%;
+        height: 500px;
+        background-color: grey;
+    }
+
+    .icon-group {
+        width: 100%;
+        height: 100%;
+        background-color: goldenrod;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+    }
+
+    .info {
+        width: 100%;
+        height: 100%;
+        background-color: darkcyan;
+    }
+
+    @media(max-width: 575px) {
+        .footer-block {
+            height: unset;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .icon {
+            margin: auto;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+</style>
+
+
+
+<body>
+    <!------------------------------------------ BANNER------------------------------------------- -->
+    <section class="banner">
+        <h1>我是標語我是標語我是標語</h1>
+        <h3>我是理念我是理念我是理念我是理念我是理念我是理念</h2>
+
+    </section>
+    <!------------------------------------------ NAV------------------------------------------- -->
+    <section>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <!-- LOGO -->
+                <a class="logo-top" href="">LOGO</a>
+
+                <!-- 漢堡條 -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent">
+                    <div class="hamberger"></div>
+                </button>
+
+                <!-- LOGO右邊的整個NAV橫條 -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="">領養步驟</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">絕育計畫</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">動保修法</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">生命課程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">關於我們</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">聯絡我們</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </section>
+    <!------------------------------------------ Taiwan------------------------------------------- -->
+    <section class="taiwan">
+        <img class="taiwanPng" src="/img/taiwan01.png" alt="">
+        <a href=""> <img class="map-icon1  map-adjust" src="/img/map-icon.png" alt=""> </a>
+        <a href=""> <img class="map-icon2  map-adjust" src="/img/map-icon.png" alt=""> </a>
+        <img class="person" src="/img/person.png" alt="">
+    </section>
+    <!------------------------------------------ 動森快訊------------------------------------------- -->
+    <section class="message">
+        <div class="container">
+            <div class="row">
+                <div class="area1 d-md-flex justify-content-around">
+                    <!-- 4張卡片 -->
+                    <div class="col-12 col-md-3 pading-block ">
+                        <div class="card ">
+                            <img class="card-img-area1" src="/img/0001jpg.jpg" alt="">
+                            <div class="card-body">
+                                <div class="card-text text-center">
+                                    <h1>我是卡片</h1>
+                                    <p>我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-3 pading-block">
+                        <div class="card">
+                            <img class="card-img-area1" src="/img/0001jpg.jpg" alt="">
+                            <div class="card-body">
+                                <div class="card-text text-center">
+                                    <h1>我是卡片</h1>
+                                    <p>我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-3 pading-block">
+                        <div class="card">
+                            <img class="card-img-area1" src="/img/0001jpg.jpg" alt="">
+                            <div class="card-body">
+                                <div class="card-text text-center">
+                                    <h1>我是卡片</h1>
+                                    <p>我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-3 pading-block ">
+                        <div class="card">
+                            <img class="card-img-area1" src="/img/0001jpg.jpg" alt="">
+                            <div class="card-body">
+                                <div class="card-text text-center">
+                                    <h1>我是卡片</h1>
+                                    <p>我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容我們式卡片的一大堆內容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------------------------------------ 國家風情------------------------------------------- -->
+    <section class="nationalStyle">
+        <div class="container">
+            <div class="photo-area d-flex justify-content-around flex-wrap">
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+                <div class="photo1"></div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ----------------------------------------------------footer------------------------------------------------------------ -->
+    <footer>
+        <div class="row">
+            <div class="footer-block d-sm-flex justify-content-around align-items-center">
+                <div class="col-12 col-sm-3">
+                    <div class="icon-group d-flex justify-content-around">
+                        <div class="icon">icon</div>
+                        <div class="icon">icon</div>
+                        <div class="icon">icon</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <div class="info text-center d-">
+                        <p>qqqqqqqqqqqq</p>
+                        <p>qqqqqqqqqqqq</p>
+                        <p>qqqqqqqqqqqq</p>
+                        <p>qqqqqqqqqqqq</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <div class="info text-center">
+                        <p>sssssssssss</p>
+                        <p>sssssssssss</p>
+                        <p>sssssssssss</p>
+                        <p>sssssssssss</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!--------------------------------- 掛載的東西一定要放在上面  下方寫JS才會動作 ---------------------------->
+    <!---------------------- Swiper掛載 ------------------------------------->
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <!---------------------- bootstrap掛載 ------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!----------------------   AOS 掛載 ------------------------------------->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!----------------------   AOS初始化 ---------------------->
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Swiper 初始化-->
+    <script>
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            loop: true,
+            freeMode: true,
+            loopedSlides: 5, //looped slides should be the same
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+        });
+        var galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+            loop: true,
+            loopedSlides: 5, //looped slides should be the same
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            thumbs: {
+                swiper: galleryThumbs,
+            },
+        });
+    </script>
+
+</body>
+
+</html>
