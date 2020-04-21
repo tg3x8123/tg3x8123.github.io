@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流浪動物</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- link swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <!-- 下載字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <!-- link AOS   -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- link animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+<style>
+    /*------------------ 起手式-------------------*/
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* 去掉超連結的底線 */
+    a:hover {
+        text-decoration: none;
+    }
+
+
+    /* 做標題跟頁面連結時滾動更滑順 */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* 針對每一個大區塊作間隔 */
+    section {
+        margin-bottom: 50px;
+    }
+
+    /*---------------------------------------------- Banner CSS--------------------------------------------------*/
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .banner {
+        position: relative;
+        height: 100vh;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+ 
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .nav-side {
+        width: 200px;
+        height: 100vh;
+        background-color: rgb(190, 190, 190);
+    }
+    /* 往下滾動時移除NAV用 */
+    .active{
+        display: none !important;
+    }
+
+    .logo-side {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(83, 83, 83);
+
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+    }
+    .menu-icon{
+        width: 60px;
+        height: 60px;
+        background-image: url('./img/menu.png');
+        background-position: center;
+        background-size: cover;
+        display: none;
+    }
+
+    .nav-area-content1 {
+        width: 280px;
+        height: 150px;
+        /* background-color: rgb(123, 213, 255); */
+
+        font-size: 20px;
+
+    }
+
+    .nav-area-content2 {
+        width: 280px;
+        height: 80px;
+        /* background-color: rgb(123, 213, 255); */
+
+        font-size: 20px;
+
+        margin: 40px 0px 60px 0px;
+    }
+
+    /* 右側NAV 縮到767以下會隱藏 */
+    @media(max-width: 767px) {
+        .nav-side {
+            position:absolute;
+            float: left;
+            top: 0em;
+            width: 100%;
+            height: 60px;
+            z-index: 10;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+        .logo-side{
+            width: 50px;
+            height: 50px;
+            font-size: 15px;
+            line-height: 50px;
+            position: relative;
+        }
+
+        .menu-icon{
+            display: block;
+        }
+        .nav-area{
+            width: 100px;
+            /* margin: 200px 0 0 0; */
+            position: absolute;
+            top: 20px;
+            right: 210px;
+
+        }
+        .nav-area-content1{
+            width: 100px;
+            height: unset;
+
+            font-size: 18px;
+            flex-direction: column;
+
+            text-align: center;
+            margin-left: 10px;
+            
+            
+        }
+        .nav-area-content2{
+            width: 100px;
+            height: unset;
+
+            font-size: 18px;
+            flex-direction: column;
+
+            text-align: center;
+            margin: 5px 0 0 10px;
+        }
+
+        .nav-area{
+            display: none;
+        }
+        
+    }
+
+    .iconClick{
+            display: block;
+    }
+    
+
+
+    /*---------------------------------------------- 第二個NAV  CSS--------------------------------------------------*/
+    .logo-top {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+    }
+
+    .hamberger {
+        width: 60px;
+        height: 60px;
+        background-image: url('./img/menu.png');
+        background-position: center;
+        background-size: cover;
+    }
+
+    .nav-link{
+        font-size: 20px;       
+    }
+
+   @media(max-width: 992px){
+       .nav-link{
+           text-align: right;
+       }
+       
+   }
+
+    /*---------------------------------------------- 第一個區塊  CSS--------------------------------------------------*/
+    /* 讓每張卡片佔滿自己的col  沒設會爆版 */
+    .card-img-area1 {
+        width: 100%;
+    }
+
+    /* 控制4張卡片的高度 */
+
+    .pading-block {
+        padding-top: 50px;
+    }
+
+    .pading-block:nth-child(even) {
+        padding-top: 120px;
+
+    }
+
+    /*---------------------------------------------- 第二到五個區塊  CSS--------------------------------------------------*/
+
+    .area2 {
+        width: 100%;
+    }
+
+    .area2-pic {
+        width: 100%;
+        /* 到度到時記得拿掉 用內容撐 */
+        height: 100vh;
+        background-color: teal;
+    }
+
+    .area2-text {
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+    }
+
+    .area2-text-block {
+        width: 80%;
+        height: 80%;
+        background-color: rgb(250, 143, 103);
+    }
+
+    /*---------------------------------------------- footer CSS--------------------------------------------------*/
+
+    .footer-block {
+        width: 100%;
+        height: 500px;
+        background-color: grey;
+    }
+
+    .icon-group {
+        width: 100%;
+        height: 100%;
+        background-color: goldenrod;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+    }
+
+    .info {
+        width: 100%;
+        height: 100%;
+        background-color: darkcyan;
+    }
+
+    @media(max-width: 575px) {
+        .footer-block {
+            height: unset;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .icon {
+            margin: auto;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+</style>
+</head>
+
+
+
+
+
+
+
+<body>
+
+    <!-- ----------------------------------------------------BANNER------------------------------------------------------------ -->
+    <div class=" banner  d-flex">
+        <!-- 左邊的  圖片輪播 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">圖片 1</div>
+                <div class="swiper-slide">圖片 2</div>
+                <div class="swiper-slide">圖片 3</div>
+            </div>
+            <!-- 導覽列 -->
+            <div class="swiper-pagination"></div>
+            <!-- 兩個箭頭 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- 右邊的 NAV BAR -->
+        <nav class="nav-side d-md-flex flex-md-column justify-content-md-around align-items-md-center">
+
+            <a href="">
+                <div class="logo-side">LOGO</div>
+            </a>
+            
+            <div class="nav-area ">
+
+                <div class="nav-area-content1 d-flex flex-md-column  align-items-md-center justify-content-md-around">
+                    <a href=""> <span>領養步驟</span> </a>
+                    <a href=""> <span>絕育計畫</span> </a>
+                    <a href=""> <span>動保修法</span> </a>
+                    <a href=""> <span>生命課程</span> </a>
+                </div>
+
+                <div class="nav-area-content2 d-flex  flex-md-column  align-items-md-center justify-content-md-around">
+                    <a href=""> <span>關於我們</span> </a>
+                    <a href=""> <span>聯絡我們</span> </a>
+                </div>
+
+            </div>
+
+            <!-- 漢堡條 -->
+            <a  class="box"href="">  <div class="menu-icon"></div>  </a>
+
+        </nav>
+    </div>
+
+    <!-- ----------------------------------------------------第二個NAV------------------------------------------------------------ -->
+    <main>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <!-- LOGO -->
+                <a class="logo-top" href="">LOGO</a>
+
+                <!-- 漢堡條 -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent">
+                    <div class="hamberger"></div>
+                </button>
+
+                <!-- LOGO右邊的整個NAV橫條 -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="">領養步驟</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">絕育計畫</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">動保修法</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">生命課程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">關於我們</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">聯絡我們</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+        </div>
+
+
+        <!-- ----------------------------------------------------第一個區塊------------------------------------------------------------ -->
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="area1 d-md-flex justify-content-around">
+                        <!-- 4張卡片 -->
+                        <div class="col-12 col-md-3 pading-block ">
+                            <div class="card ">
+                                <img class="card-img-area1" src="./img/0001.jpg" alt="">
+                                <div class="card-body">
+                                    <div class="card-text text-center">
+                                        <h1>我是卡片</h1>
+                                        <p>我們式卡片的一大堆內容</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 pading-block">
+                            <div class="card">
+                                <img class="card-img-area1" src="./img/0002.jpg" alt="">
+                                <div class="card-body">
+                                    <div class="card-text text-center">
+                                        <h1>我是卡片</h1>
+                                        <p>我們式卡片的一大堆內容</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 pading-block">
+                            <div class="card">
+                                <img class="card-img-area1" src="./img/0003.jpg" alt="">
+                                <div class="card-body">
+                                    <div class="card-text text-center">
+                                        <h1>我是卡片</h1>
+                                        <p>我們式卡片的一大堆內容</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 pading-block ">
+                            <div class="card">
+                                <img class="card-img-area1" src="./img/0005.jpg" alt="">
+                                <div class="card-body">
+                                    <div class="card-text text-center">
+                                        <h1>我是卡片</h1>
+                                        <p>我們式卡片的一大堆內容</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------------------------------------------------第二個區塊------------------------------------------------------------ -->
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="area2  d-md-flex ">
+                        <div class="col-12 col-md-8">
+                            <div class="area2-pic"></div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="area2-text d-flex justify-content-center align-items-center">
+                                <div class="area2-text-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------------------------------------------------第三個區塊------------------------------------------------------------ -->
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="area2  d-md-flex flex-row-reverse ">
+                        <div class="col-12 col-md-8">
+                            <div class="area2-pic"></div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="area2-text d-flex justify-content-center align-items-center">
+                                <div class="area2-text-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------------第四個區塊------------------------------------------------------------ -->
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="area2  d-md-flex ">
+                        <div class="col-12 col-md-8">
+                            <div class="area2-pic"></div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="area2-text d-flex justify-content-center align-items-center">
+                                <div class="area2-text-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------------第五個區塊------------------------------------------------------------ -->
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="area2  d-md-flex flex-row-reverse ">
+                        <div class="col-12 col-md-8">
+                            <div class="area2-pic"></div>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="area2-text d-flex justify-content-center align-items-center">
+                                <div class="area2-text-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------------footer------------------------------------------------------------ -->
+        <footer>
+            <div class="row">
+                <div class="footer-block d-sm-flex justify-content-around align-items-center">
+                    <div class="col-12 col-sm-3">
+                        <div class="icon-group d-flex justify-content-around">
+                            <div class="icon">icon</div>
+                            <div class="icon">icon</div>
+                            <div class="icon">icon</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <div class="info text-center d-">
+                            <p>qqqqqqqqqqqq</p>
+                            <p>qqqqqqqqqqqq</p>
+                            <p>qqqqqqqqqqqq</p>
+                            <p>qqqqqqqqqqqq</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <div class="info text-center">
+                            <p>sssssssssss</p>
+                            <p>sssssssssss</p>
+                            <p>sssssssssss</p>
+                            <p>sssssssssss</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </main>
+
+
+
+
+
+
+    <!--------------------------------- 掛載的東西一定要放在上面  下方寫JS才會動作 ---------------------------->
+    <!---------------------- Swiper掛載 ------------------------------------->
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <!---------------------- bootstrap掛載 ------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!----------------------   AOS 掛載 ------------------------------------->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+    <!----------------------   AOS初始化 ---------------------->
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Swiper 初始化-->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+
+    <script>
+        var nav_side =document.querySelector('.nav-side')
+               
+        window.onscroll = function(){
+            var nowScrollTop_safari = document.body.scrollTop
+            var nowScrollTop_google = document.documentElement.scrollTop
+                       
+            if(nowScrollTop_safari > 200  || nowScrollTop_google > 200){
+                nav_side.classList.add('active')
+            }else{
+                nav_side.classList.remove('active')
+            }
+        }
+    </script>
+
+    <script>
+
+        var navArea = document.querySelector('.nav-area')
+        var menuIcon = document.querySelector('.menu-icon')
+        menuIcon.onclick = function(){
+            navArea.classList.add('iconClick')
+        }
+    </script>
+</body>
+
+</html>
